@@ -70,9 +70,7 @@ public class DataAccessServiceImpl implements DataAccessService {
 
         List<DataSetFileProcessingEntity> processingEntities = new ArrayList<>();
         try {
-            ConnectorSDKUtil utilInstance = ConnectorSDKUtil.getInstance();
-            String dataAccessURI = utilInstance.getEndPoint(ResourceName.DATA_ACCESS);
-            URIBuilder builder = new URIBuilder(dataAccessURI);
+            URIBuilder builder = new URIBuilder(_endpoint);
             builder.setPath(builder.getPath() + "/files/" + dataSetFileId);
             HttpGet request = new HttpGet(builder.build());
             httpClientUtil.addHeader(request, accessToken, imsOrg, SDKConstants.CONNECTION_HEADER_JSON_CONTENT);
@@ -105,9 +103,7 @@ public class DataAccessServiceImpl implements DataAccessService {
     public List<DataAccessFileEntity> getDataSetFilesFromBatchId(String imsOrg, String accessToken, String batchId) throws ConnectorSDKException {
         List<DataAccessFileEntity> processingEntities = new ArrayList<>();
         try {
-            ConnectorSDKUtil utilInstance = ConnectorSDKUtil.getInstance();
-            String dataAccessURI = utilInstance.getEndPoint(ResourceName.DATA_ACCESS);
-            URIBuilder builder = new URIBuilder(dataAccessURI);
+            URIBuilder builder = new URIBuilder(_endpoint);
             builder.setPath(builder.getPath() + "/batches/" + batchId + "/files");
             HttpGet request = new HttpGet(builder.build());
             httpClientUtil.addHeader(request, accessToken, imsOrg, SDKConstants.CONNECTION_HEADER_JSON_CONTENT);

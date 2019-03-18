@@ -60,7 +60,7 @@ public class CatalogServiceImpl implements CatalogService {
 
     private static Logger logger = Logger.getLogger(CatalogServiceImpl.class.getName());
 
-    protected CatalogServiceImpl(String endpoint, HttpClient httpClient) throws ConnectorSDKException {
+    public CatalogServiceImpl(String endpoint, HttpClient httpClient) throws ConnectorSDKException {
         this._endpoint = endpoint;
         HttpClient hClient = httpClient == null ? HttpClientUtil.getHttpClient() : httpClient;
         httpClientUtil = new HttpClientUtil(hClient);

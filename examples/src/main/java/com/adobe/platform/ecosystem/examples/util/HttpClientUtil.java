@@ -153,8 +153,7 @@ public class HttpClientUtil {
         request.setHeader("Accept", contentType);
         request.setHeader("Authorization", "Bearer " + authToken);
         request.setHeader(SDKConstants.CONNECTION_HEADER_IMS_ORG_KEY, imsOrg);
-        request.setHeader(SDKConstants.CONNECTION_HEADER_X_API_KEY,
-                ConnectorSDKUtil.getInstance().getConnectionProperty(SDKConstants.CREDENTIAL_CLIENT_KEY));
+        request.setHeader(SDKConstants.CONNECTION_HEADER_X_API_KEY, "<ClientId here>");
     }
 
     public void setHeader(HttpGet request, List<Header> httpHeaders) {
